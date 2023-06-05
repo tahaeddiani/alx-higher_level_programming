@@ -1,3 +1,4 @@
 #!/usr/bin/python3
 by = "by Tim Peters"
-print(f"The Zen of Python, {by}\n")
+thez= "The Zen of Python,"
+print(f"{thez} {by}\n")
