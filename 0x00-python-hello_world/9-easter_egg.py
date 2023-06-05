@@ -1,4 +1,4 @@
 #!/usr/bin/python3
-by = "The Zen of Python, by Tim Peters"
-print(by)
-print("")
+with open('easteregg.py', 'r') as file:
+    content = file.read()
+print(content)
