@@ -4,6 +4,9 @@
 
 class BaseGeometry:
     """improve class"""
+    def __init__(self):
+        """init inti"""
+        pass
 
     def area(self):
         """Integer validator"""
