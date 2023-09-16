@@ -1,26 +1,27 @@
 #!/usr/bin/python3
-"""get all states"""
-
+"""print all states from hbtn_0e_0_usa database"""
 import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    vr = sys.argv
-    dd = MySQLdb.connect(
-            host="localhost",
+
+    mysql_username = sys.argv[1]
+    mysql_password = sys.argv[2]
+    database_name = sys.argv[3]
+    sync = MySQLdb.connect(
+            host='localhost',
             port=3306,
-            user=vr[1],
-            passwd=vr[2],
-            db=vr[3])
+            user=mysql_username,
+            passwd=mysql_password,
+            db=database_name)
+    cursor = sync.cursor()
 
-cr = dd.cursor()
+    sql_coo = "SELECT * FROM states ORDER BY id ASC"
+    cursor.execute(sql_coo)
 
-y = "SELECT * FROM states ORDER BY id ASC"
-cr.execute(y)
+    lines = cursor.fetchall()
 
-ty = cr.fetchall()
+    for line in lines:
+        print(line)
 
-for i in ty:
-    print(i)
-
-dd.close()
+    sync.close()
